@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia de Texto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="fullPageMenu" id="nav">
+        <div class="banner">
+            <img src="/img/perfil.jpeg" alt="image">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/isatutumi/" data-text="LinkedIn" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/isatutumi" data-text="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="mailto:isatutumi@gmail.com" data-text="Contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+    <button class="menuicon" id="toggle" onclick="menuToggle()"></button>
+    
+    <div class="content">
+        <main>
+            <section class="inicio">
+                <div class="textarea-wrapper">
+                    <textarea id="texto" placeholder="Digite seu texto"></textarea>
+                </div>
+                <div id="atencao">
+                    <img src="img/atencao.png" alt="Atenção">
+                    <p>Apenas letras minúsculas e sem acento.</p>
+                </div>
+                <div class="btn_desktop">
+                    <div class="botoes">
+                        <button type="button" onclick="codificarTexto()" class="botao botao_crip">Criptografar</button>
+                        <button type="button" onclick="decodificarTexto()" class="botao botao_des">Descriptografar</button>
+                    </div>
+                </div>
+            </section>
+            <section id="resultado">
+                <div class="resultado_msg">
+                    <h2>
+                        Nenhuma mensagem encontrada
+                    </h2>
+                    <p>
+                        Digite um texto que você deseja criptografar ou descriptografar.
+                    </p>
+                    <button type="button" onclick="copiarTexto()" class="botao copiar-oculto">
+                        Copiar
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

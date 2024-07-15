@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --cor-primaria: #F4F4F4;
+    --cor-secundaria: #3B0273;
+    --cor-branca: #FFFFFF;
+    --cor-cinza: #343A40;
+    --cor-hover: #e3ccec;
+    --cor-hover-2:#51069c;
+}
+
+::-webkit-input-placeholder {
+    color: var(--cor-secundaria);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: grid;
+    place-items: center;
+}
+
+body {
+    background-color: var(--cor-primaria);
+    margin: 1rem;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.content {
+    padding-top: 5rem;
+}
+
+main {
+    width: 21.438rem;
+    margin: 0 auto 1.875rem auto;
+}
+
+.textarea-wrapper {
+    width: 100%;
+}
+
+#texto {
+    border: none;
+    width: 100%;
+    background-color: var(--cor-primaria);
+    height: 8rem;
+    resize: none;
+    overflow-x: auto;
+}
+
+#texto:empty {
+    color: var(--cor-secundaria);
+    font-size: 2rem;
+}
+
+#texto:not(empty) {
+    color: var(--cor-secundaria);
+    font-size: 2rem;
+}
+
+#texto:focus {
+    outline: none;
+    border: none;
+}
+
+.perfil {
+    width: 15%;
+    border-radius: 50%;
+}
+
+#atencao {
+    display: flex;
+    font-size: 0.75rem;
+    color: var(--cor-cinza);
+    margin-bottom: 1rem;
+}
+
+#atencao img {
+    width: 1rem;
+    margin-right: 0.5rem;
+    filter: grayscale(50%);
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.botao {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    border: 0.063rem solid var(--cor-secundaria);
+    cursor: pointer;
+}
+
+.botao_crip {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
+}
+
+.botao_crip:hover {
+    background-color: var(--cor-hover-2);
+}
+
+.botao_des {
+    color: var(--cor-secundaria);
+}
+
+.botao_des:hover {
+    background-color: var(--cor-hover);
+}
+
+#resultado {
+    display: flex;
+    margin-top: 4rem;
+    background-color: var(--cor-branca);
+    border-radius: 2rem;
+    border: none;
+    box-shadow: 0 1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.08);
+    width: 21.438rem;
+    height: auto;
+}
+
+.resultado_msg {
+    padding: 2rem;
+    text-align: center;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.resultado_msg h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-cinza);
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+}
+
+.resultado_msg p {
+    color: var(--cor-cinza);
+    font-size: 1rem;
+}
+.resultado_msg button {
+    margin-top: 2rem;
+    width: 100%;
+    background-color: var(--cor-branca);
+    color: var(--cor-secundaria);
+}
+
+.copiar-oculto {
+    display: none;
+}
+
+/* NAV BAR */
+.fullPageMenu {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    transition: 0.5s;
+    top: -100%;
+}
+
+.fullPageMenu.active {
+    top: 0;
+}
+
+.fullPageMenu .banner {
+    position: relative;
+    width: 37.5rem;
+    height: 100%;
+}
+
+.fullPageMenu .banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.fullPageMenu .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.fullPageMenu .nav ul {
+    position: relative;
+}
+
+.fullPageMenu .nav ul li {
+    position: relative;
+    list-style: none;
+    padding: 0 1.25rem;
+    margin: 0.313rem 0;
+    overflow: hidden;
+    display: table;
+}
+
+.fullPageMenu .nav ul li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cor-secundaria);
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+.fullPageMenu .nav ul li:hover:before {
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.fullPageMenu .nav ul li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: 700;
+    line-height: 1em;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+
+.fullPageMenu .nav ul li a::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    color: #fff;
+}
+
+.fullPageMenu .nav ul li:hover a {
+    transform: translateY(-100%);
+    color: fff;
+}
+
+.menuicon {
+    position: fixed;
+    z-index: 100;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 3.75rem;
+    height: 3.75rem;
+    background: #fff url(https://i.postimg.cc/25t1dMY5/pngegg-1.png);
+    background-size: 2.5rem;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 0.625rem;
+    border: none;
+    background-color: var(--cor-primaria);
+    border-radius: 50%;
+}
+
+.menuicon.active {
+    border-radius: 50%;
+    background: #fff url(https://i.postimg.cc/k4rb3zpp/pngwave.png);
+    background-size: 2.5rem;
+    background-repeat: no-repeat;
+    background-position: 0.625rem;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        overflow: auto;
+    }
+    .botoes {
+        flex-direction: row;
+    }
+    .botao_crip {
+        width: 50%;
+    }
+    
+    .botao_des {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        display: flex;
+        width: 62.5rem;
+        gap: 5rem;
+        
+    }
+
+
+    #texto {
+        height: 60vh;
+    }
+
+    .inicio {
+        width: 60%;
+        height: 80vh;
+        position: relative;
+    }
+    #resultado {
+        margin: 0;
+        height: 80vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #atencao {
+        position: absolute;
+        bottom: 4.125rem;
+    }
+
+    .btn_desktop {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .botoes {
+        flex-direction: row;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .botao_crip {
+        width: 50%;
+    }
+
+    .botao_des {
+        width: 50%;
+    }
+}
+
+@media(max-width:991px) {
+    .banner {
+        display: none;
+    }
+    body {
+        overflow: auto;
+    }
+}
